@@ -1,0 +1,29 @@
+-- Criando a tabela Fornecedor
+CREATE TABLE Fornecedor (
+    Id INT PRIMARY KEY IDENTITY, -- ID autoincremental
+    Codigo VARCHAR(50), -- Código do fornecedor
+    Descricao NVARCHAR(255), -- Descrição do fornecedor
+    CNPJ VARCHAR(14), -- CNPJ do fornecedor
+    Nome NVARCHAR(255) -- Nome do fornecedor
+);
+
+-- Criando a tabela Produto
+CREATE TABLE Produto (
+    Id INT PRIMARY KEY IDENTITY, -- ID autoincremental
+    CodigoSequencial INT NOT NULL, -- Código sequencial e não nulo
+    Descricao NVARCHAR(255) NOT NULL, -- Descrição não nula
+    Situacao BIT, -- Situação booleana (BIT é usado no SQL Server para armazenar valores booleanos)
+    DataFabricacao DATE, -- Data de fabricação
+    DataValidade DATE, -- Data de validade
+    FornecedorId INT, -- Chave estrangeira para o Fornecedor
+    FOREIGN KEY (FornecedorId) REFERENCES Fornecedor(Id) -- Definindo a chave estrangeira
+);
+
+
+-- Inserindo um registro na tabela Fornecedor
+INSERT INTO Fornecedor (Codigo, Descricao, CNPJ, Nome)
+VALUES ('001', 'Descrição do fornecedor', '12345678901234', 'Fornecedor ABC');
+
+-- Inserindo um registro na tabela Produto
+INSERT INTO Produto (CodigoSequencial, Descricao, Situacao, DataFabricacao, DataValidade, FornecedorId)
+VALUES (1001, 'Descrição do produto', 1, '2023-01-01', '2024-01-01', 1);
