@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.DTO
+namespace Domain.Model
 {
-    public class ProductDTO
+    public class ProductModel
     {
         public int Id { get; set; }
         public string Descricao { get; set; }

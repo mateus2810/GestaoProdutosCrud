@@ -139,7 +139,11 @@
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\mateu\\OneDrive\\Área de Trabalho\\Utilitarios\\projetos\\GestaoProdutosCrud\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\mateu\\OneDrive\\Área de Trabalho\\Utilitarios\\projetos\\GestaoProdutosCrud\\Domain\\Domain.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
