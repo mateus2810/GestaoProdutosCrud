@@ -9,6 +9,6 @@ namespace Domain.Interfaces
 {
     public interface IProductRepository
     {
-        public Task<ProductModel> GetAllProduct();
+        public Task<List<ProductModel>> GetAllProduct();
     }
 }

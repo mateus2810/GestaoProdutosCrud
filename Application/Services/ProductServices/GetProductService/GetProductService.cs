@@ -12,9 +12,14 @@ namespace Application.Services.ProductServices.GetProductService
     public class GetProductService : IGetProductService
     {
         private readonly IProductRepository _productRepository;
+
+        public GetProductService(IProductRepository productRepository)
+        {
+            _productRepository = productRepository;
+        }
         public async Task<ProductDTO> GetAllProduct()
         {
-            var retorno = _productRepository.GetAllProduct();
+            var retorno = await _productRepository.GetAllProduct();
             
             var product = new ProductDTO() { Id = 15};               
             return product;

@@ -1,5 +1,8 @@
 using Application.Services.ProductServices.GetProductService;
 using Application.Services.ProductServices.GetProductService.Interface;
+using Data.Repositories.Base;
+using Domain.Interfaces;
+using Infrastructure.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -35,7 +38,11 @@ namespace GestaoProdutos
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "GestaoProdutos", Version = "v1" });
             });
 
+            // Registro de DbSession
+            services.AddScoped<DbSession>();
+
             services.AddScoped<IGetProductService, GetProductService>();
+            services.AddScoped<IProductRepository, ProductRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
