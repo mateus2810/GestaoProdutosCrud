@@ -1,0 +1,45 @@
+# Arquivos e pastas gerados automaticamente
+bin/
+obj/
+*.user
+*.suo
+*.bak
+*.vscode/
+.vs/
+
+# Arquivos de dependências do NuGet
+packages/
+
+# Arquivos de compilação do Visual Studio
+*.dll
+*.exe
+*.pdb
+*.dll.config
+*.cache
+*.log
+*.bin
+*.deploy
+
+# Arquivos de publicação e saída de compilação
+publish/
+out/
+
+# Arquivos temporários
+temp/
+tmp/
+
+# Arquivos de build e configuração
+*.csproj.user
+*.cache
+*.DS_Store
+
+# Logs e arquivos de exceção
+*.log
+*.swp
+error.log
+
+# Cache e arquivos temporários do IIS
+IISExpress/
+AppData/
+
+# Outros arquivos e pastas específicos da aplicação
