@@ -2,10 +2,7 @@
 using AutoMapper;
 using Domain.DTO;
 using Domain.Interfaces;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Application.Services.ProductServices.GetProductService
@@ -20,9 +17,9 @@ namespace Application.Services.ProductServices.GetProductService
             _productRepository = productRepository;
             _mapper = mapper;
         }
-        public async Task<List<ProductDTO>> GetAllProduct()
+        public async Task<List<ProductDTO>> GetAllProduct(int pageNumber, int pageSize)
         {
-            var products = await _productRepository.GetAllProduct();
+            var products = await _productRepository.GetAllProduct(pageNumber, pageSize);
 
             var productDTOs = _mapper.Map<List<ProductDTO>>(products);
 

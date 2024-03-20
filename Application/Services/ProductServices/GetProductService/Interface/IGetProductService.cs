@@ -6,7 +6,7 @@ namespace Application.Services.ProductServices.GetProductService.Interface
 {
     public interface IGetProductService
     {
-        public Task<List<ProductDTO>> GetAllProduct();
+        public Task<List<ProductDTO>> GetAllProduct(int pageNumber, int pageSize);
         public Task<List<ProductSupplierDTO>> GetProductByCode(string codigo);
     }
 }

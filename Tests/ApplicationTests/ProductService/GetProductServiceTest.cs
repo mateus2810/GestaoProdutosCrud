@@ -41,7 +41,7 @@ namespace Tests.ApplicationTests.ProductService
                     }
                 };
             var productRepositoryMock = new Mock<IProductRepository>();
-            productRepositoryMock.Setup(repo => repo.GetAllProduct())
+            productRepositoryMock.Setup(repo => repo.GetAllProduct(0, 5))
                                  .ReturnsAsync(products);
             var mapperMock = new Mock<IMapper>();
             mapperMock.Setup(mapper => mapper.Map<List<ProductDTO>>(products))
@@ -57,7 +57,7 @@ namespace Tests.ApplicationTests.ProductService
             var productService = new GetProductService(productRepositoryMock.Object, mapperMock.Object);
 
             // Act
-            var result = await productService.GetAllProduct();
+            var result = await productService.GetAllProduct(0,5);
 
             // Assert
             Assert.NotNull(result);
@@ -69,13 +69,13 @@ namespace Tests.ApplicationTests.ProductService
         {
             // Arrange
             var productRepositoryMock = new Mock<IProductRepository>();
-            productRepositoryMock.Setup(repo => repo.GetAllProduct())
+            productRepositoryMock.Setup(repo => repo.GetAllProduct(0, 5))
                                  .ReturnsAsync(new List<ProductModel>());
             var mapperMock = new Mock<IMapper>();
             var productService = new GetProductService(productRepositoryMock.Object, mapperMock.Object);
 
             // Act
-            var result = await productService.GetAllProduct();
+            var result = await productService.GetAllProduct(0, 5);
 
             // Assert
             Assert.Null(result);
@@ -86,13 +86,13 @@ namespace Tests.ApplicationTests.ProductService
         {
             // Arrange
             var productRepositoryMock = new Mock<IProductRepository>();
-            productRepositoryMock.Setup(repo => repo.GetAllProduct())
+            productRepositoryMock.Setup(repo => repo.GetAllProduct(0, 5))
                                  .ThrowsAsync(new Exception("Unexpected error"));
             var mapperMock = new Mock<IMapper>();
             var productService = new GetProductService(productRepositoryMock.Object, mapperMock.Object);
 
             // Act & Assert
-            await Assert.ThrowsAsync<Exception>(async () => await productService.GetAllProduct());
+            await Assert.ThrowsAsync<Exception>(async () => await productService.GetAllProduct(0, 5));
         }
 
 
@@ -121,7 +121,7 @@ namespace Tests.ApplicationTests.ProductService
                           Situation = p.Situation,
                           ManufactureDate = p.ManufactureDate,
                           ExpiryDate = p.ExpiryDate,
-                          SupplierId = p.SupplierId,
+                          SupplierId = p.SupplierId.Value,
                           SupplierCode = p.SupplierCode,
                           SupplierDescription = p.SupplierDescription,
                           CNPJ = p.CNPJ,

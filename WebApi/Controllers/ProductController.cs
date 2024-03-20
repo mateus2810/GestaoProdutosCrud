@@ -31,9 +31,9 @@ namespace WebApi.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetAllProduct()
+        public async Task<IActionResult> GetAllProduct(int pageNumber, int pageSize)
         {
-            var products = await _getProductService.GetAllProduct();
+            var products = await _getProductService.GetAllProduct(pageNumber, pageSize);
 
             if (products.Count == 0)
             {

@@ -20,13 +20,13 @@ namespace Tests.WebApiTests
         {
             // Arrange
             var productServiceMock = new Mock<IGetProductService>();
-            productServiceMock.Setup(service => service.GetAllProduct())
+            productServiceMock.Setup(service => service.GetAllProduct(0, 5))
                               .ReturnsAsync(new List<ProductDTO> { new ProductDTO() });
 
             var controller = new ProductController(productServiceMock.Object, null, null, null);
 
             // Act
-            var result = await controller.GetAllProduct();
+            var result = await controller.GetAllProduct(0, 5);
 
             // Assert
             var okResult = Assert.IsType<OkObjectResult>(result);
@@ -39,13 +39,13 @@ namespace Tests.WebApiTests
         {
             // Arrange
             var productServiceMock = new Mock<IGetProductService>();
-            productServiceMock.Setup(service => service.GetAllProduct())
+            productServiceMock.Setup(service => service.GetAllProduct(0, 5))
                               .ReturnsAsync(new List<ProductDTO>());
 
             var controller = new ProductController(productServiceMock.Object, null, null, null);
 
             // Act
-            var result = await controller.GetAllProduct();
+            var result = await controller.GetAllProduct(0, 5);
 
             // Assert
             Assert.IsType<NoContentResult>(result);

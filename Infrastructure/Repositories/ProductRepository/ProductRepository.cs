@@ -18,7 +18,7 @@ namespace Infrastructure.Repositories
             _dbSession = dbSession;
         }
 
-        public async Task<List<ProductModel>> GetAllProduct()
+        public async Task<List<ProductModel>> GetAllProduct(int pageNumber, int pageSize)
         {
             List<ProductModel> products = new List<ProductModel>();
 
@@ -26,7 +26,12 @@ namespace Infrastructure.Repositories
             {
                 using (var command = _dbSession.Connection.CreateCommand())
                 {
-                    command.CommandText = "SELECT * FROM Produto";
+                    // Calcular o deslocamento com base no número da página e no tamanho da página
+                    int offset = (pageNumber - 1) * pageSize;
+
+                    command.CommandText = "SELECT * FROM Produto ORDER BY Id OFFSET @Offset ROWS FETCH NEXT @PageSize ROWS ONLY";
+                    command.Parameters.AddWithValue("@Offset", offset);
+                    command.Parameters.AddWithValue("@PageSize", pageSize);
 
                     using (var reader = await command.ExecuteReaderAsync())
                     {
@@ -34,7 +39,7 @@ namespace Infrastructure.Repositories
                         {
                             ProductModel product = new ProductModel
                             {
-                                Id = reader.GetInt32("Id"),
+                                Id = reader.GetInt32(reader.GetOrdinal("Id")),
                                 Descricao = reader["Descricao"].ToString(),
                                 Codigo = reader["Codigo"].ToString(),
                                 Situacao = Convert.ToBoolean(reader["Situacao"]),
@@ -50,7 +55,6 @@ namespace Infrastructure.Repositories
             }
             catch (Exception ex)
             {
-
                 throw new Exception("Ocorreu um erro ao obter os produtos. Por favor, tente novamente mais tarde.", ex);
             }
             finally
