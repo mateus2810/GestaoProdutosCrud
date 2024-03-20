@@ -1,6 +1,8 @@
 ﻿using Application.Services.ProductServices.CreateProductService.Interface;
+using Application.Services.Validations;
 using Domain.Input;
 using Domain.Interfaces;
+using System;
 using System.Threading.Tasks;
 
 namespace Application.Services.CreateProductService
@@ -14,11 +16,20 @@ namespace Application.Services.CreateProductService
         }
 
 
-        public async Task<bool> CreateProduct(ProductInput productInput)
+        public async Task<(bool Success, string ErrorMessage)> CreateProduct(ProductInput productInput)
         {
-            var product = await _productRepository.InsertProduct(productInput);
-
-            return product;
+            try
+            {
+                ProductValidation.Validate(productInput);
+                var addedProduct = await _productRepository.InsertProduct(productInput);
+                
+                return (true, null); // Operação bem-sucedida
+            }
+            catch (ArgumentException ex)
+            {
+                return (false, ex.Message); // Falha na validação
+            }
         }
     }
 }
+

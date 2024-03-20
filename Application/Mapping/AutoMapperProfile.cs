@@ -11,6 +11,7 @@ namespace Application.Mapping
         {
             CreateMap<ProductModel, ProductDTO>(); // Mapeia a classe de domínio ProductModel para a classe DTO ProductDTO
             CreateMap<SupplierModel, SupplierDTO>(); // Mapeia a classe de domínio SupplierModel para a classe DTO SupplierDTO
+            CreateMap<ProductSupplierModel, ProductSupplierDTO>(); // Mapeia a classe de domínio ProductSupplierModel para a classe DTO ProductSupplierDTO
         }
     }
 }

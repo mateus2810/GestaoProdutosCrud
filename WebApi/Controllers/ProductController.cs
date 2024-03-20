@@ -48,9 +48,16 @@ namespace WebApi.Controllers
         [HttpPost]
         public async Task<ActionResult<ProductDTO>> CreateProduct(ProductInput product)
         {
-            var addedProduct = await _createProductServices.CreateProduct(product);
-            
-            return Ok(addedProduct);
+            var (success, errorMessage) = await _createProductServices.CreateProduct(product);
+
+            if (success)
+            {
+                return Ok(); // Produto criado com sucesso
+            }
+            else
+            {
+                return BadRequest(errorMessage); // Falha na criação do produto
+            }
         }
 
 
@@ -63,15 +70,16 @@ namespace WebApi.Controllers
                 return BadRequest();
             }
 
-            var success = await _updateProductService.UpdateProduct(id, product);
-            
-            if (!success)
-            {
-                return NotFound();
-            }
+            var (success, errorMessage) = await _updateProductService.UpdateProduct(id, product);
 
-            //avaliar
-            return NoContent();
+            if (success)
+            {
+                return NoContent(); // Produto criado com sucesso
+            }
+            else
+            {
+                return BadRequest(errorMessage); // Falha na criação do produto
+            }
         }
 
 
@@ -93,5 +101,23 @@ namespace WebApi.Controllers
             return NoContent(); // Retornar 204 (No Content) se o produto foi deletado com sucesso
         }
 
+        [HttpGet("{codigo}")]
+        public async Task<IActionResult> GetProductByCode(string codigo)
+        {
+            if (string.IsNullOrEmpty(codigo))
+            {
+                return BadRequest("Código não fornecido.");
+            }
+
+            var product = await _getProductService.GetProductByCode(codigo);
+
+            if (product == null)
+            {
+                return NotFound($"Produto com código '{codigo}' não encontrado.");
+            }
+
+            return Ok(product);
+        }
     }
+
 }

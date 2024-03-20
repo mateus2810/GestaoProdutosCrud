@@ -9,6 +9,6 @@ namespace Application.Services.ProductServices.UpdateProductService.Interface
 {
     public interface IUpdateProductService
     {
-        public Task<bool> UpdateProduct(int id, ProductInput productInput);
+        public Task<(bool Success, string ErrorMessage)> UpdateProduct(int id, ProductInput productInput);
     }
 }

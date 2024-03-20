@@ -143,5 +143,66 @@ namespace Infrastructure.Repositories
                 _dbSession.Dispose(); // Garante que a conexão seja fechada
             }
         }
+
+        public async Task<List<ProductSupplierModel>> GetProductByCode(string codigo)
+        {
+            List<ProductSupplierModel> products = new List<ProductSupplierModel>();
+
+            try
+            {
+                using (var command = _dbSession.Connection.CreateCommand())
+                {
+                    command.CommandText = @"SELECT p.Id AS ProductId, 
+                                                p.Descricao AS ProductDescription, 
+                                                p.Codigo AS ProductCode, 
+                                                p.Situacao AS Situation, 
+                                                p.DataFabricacao AS ManufactureDate, 
+                                                p.DataValidade AS ExpiryDate, 
+                                                f.Id AS SupplierId, 
+                                                f.Codigo AS SupplierCode, 
+                                                f.Descricao AS SupplierDescription, 
+                                                f.CNPJ AS CNPJ, 
+                                                f.Nome AS Name
+                                            FROM Produto p
+                                            INNER JOIN Fornecedor f ON p.FornecedorId = f.Id
+                                            WHERE p.Codigo = @Codigo";
+                    command.Parameters.AddWithValue("@Codigo", codigo);
+
+                    using (var reader = await command.ExecuteReaderAsync())
+                    {
+                        while (await reader.ReadAsync())
+                        {
+                            ProductSupplierModel productSupplier = new ProductSupplierModel
+                            {
+                                ProductId = reader.GetInt32(reader.GetOrdinal("ProductId")),
+                                ProductDescription = reader["ProductDescription"].ToString(),
+                                ProductCode = reader["ProductCode"].ToString(),
+                                Situation = Convert.ToBoolean(reader["Situation"]),
+                                ManufactureDate = Convert.ToDateTime(reader["ManufactureDate"]),
+                                ExpiryDate = Convert.ToDateTime(reader["ExpiryDate"]),
+                                SupplierId = reader.GetInt32(reader.GetOrdinal("SupplierId")),
+                                SupplierCode = reader["SupplierCode"].ToString(),
+                                SupplierDescription = reader["SupplierDescription"].ToString(),
+                                CNPJ = reader["CNPJ"].ToString(),
+                                Name = reader["Name"].ToString()
+                            };
+
+                            products.Add(productSupplier);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Handle exceptions here
+                throw new Exception("An error occurred while retrieving the product by code.", ex);
+            }
+            finally
+            {
+                _dbSession.Dispose(); // Ensure connection is closed
+            }
+
+            return products;
+        }
     }
 }

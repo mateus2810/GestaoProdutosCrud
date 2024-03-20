@@ -1,4 +1,5 @@
 ﻿using Application.Services.ProductServices.UpdateProductService.Interface;
+using Application.Services.Validations;
 using Domain.Input;
 using Domain.Interfaces;
 using System;
@@ -16,12 +17,20 @@ namespace Application.Services.ProductServices.UpdateProductService
         {
             _productRepository = productRepository;
         }
-        public Task<bool> UpdateProduct(int id, ProductInput productInput)
+        public async Task<(bool Success, string ErrorMessage)> UpdateProduct(int id, ProductInput productInput)
         {
-            //validar nome
-            var productUpdate = _productRepository.UpdateProduct(id, productInput);
+            try
+            {
+                ProductValidation.Validate(productInput);
+                //validar nome
+                var productUpdate = await _productRepository.UpdateProduct(id, productInput);
 
-            return productUpdate;
+                return (true, null); // Operação bem-sucedida
+            }
+            catch (Exception ex)
+            {
+                return (false, ex.Message); // Falha na validação
+            }
         }
     }
 }

@@ -29,5 +29,14 @@ namespace Application.Services.ProductServices.GetProductService
 
             return productDTOs;
         }
+
+        public async Task<List<ProductSupplierDTO>> GetProductByCode(string codigo)
+        {
+            var products = await _productRepository.GetProductByCode(codigo);
+
+            var productDTOs = _mapper.Map<List<ProductSupplierDTO>>(products);
+            
+            return productDTOs;
+        }
     }
 }
