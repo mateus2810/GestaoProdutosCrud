@@ -20,9 +20,9 @@ namespace Application.Services.SupplierServices.GetSupllierService
             _mapper = mapper;
         }
 
-        public async Task<List<SupplierDTO>> GetAllSupplier()
+        public async Task<List<SupplierDTO>> GetAllSupplier(int pageNumber, int pageSize)
         {
-            var listSupplier = await _supplierRepository.GetAllSuppliers();
+            var listSupplier = await _supplierRepository.GetAllSuppliers(pageNumber, pageSize);
 
             var supplierDTOs = _mapper.Map<List<SupplierDTO>>(listSupplier);
 

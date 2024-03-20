@@ -23,7 +23,7 @@ namespace Tests.ApplicationTests.SupplierService
             };
 
             var supplierRepositoryMock = new Mock<ISupplierRepository>();
-            supplierRepositoryMock.Setup(repo => repo.GetAllSuppliers())
+            supplierRepositoryMock.Setup(repo => repo.GetAllSuppliers(0, 3))
                                   .ReturnsAsync(new List<SupplierModel>());
 
             var mapperMock = new Mock<IMapper>();
@@ -33,7 +33,7 @@ namespace Tests.ApplicationTests.SupplierService
             var getSupplierService = new GetSupllierService(supplierRepositoryMock.Object, mapperMock.Object);
 
             // Act
-            var result = await getSupplierService.GetAllSupplier();
+            var result = await getSupplierService.GetAllSupplier(0, 3);
 
             // Assert
             Assert.Equal(expectedSupplierList, result);
@@ -44,7 +44,7 @@ namespace Tests.ApplicationTests.SupplierService
         {
             // Arrange
             var supplierRepositoryMock = new Mock<ISupplierRepository>();
-            supplierRepositoryMock.Setup(repo => repo.GetAllSuppliers())
+            supplierRepositoryMock.Setup(repo => repo.GetAllSuppliers(0, 3))
                                   .ReturnsAsync(new List<SupplierModel>());
 
             var mapperMock = new Mock<IMapper>();
@@ -52,7 +52,7 @@ namespace Tests.ApplicationTests.SupplierService
             var getSupplierService = new GetSupllierService(supplierRepositoryMock.Object, mapperMock.Object);
 
             // Act
-            var result = await getSupplierService.GetAllSupplier();
+            var result = await getSupplierService.GetAllSupplier(0, 3);
 
             // Assert
             Assert.Null(result); 

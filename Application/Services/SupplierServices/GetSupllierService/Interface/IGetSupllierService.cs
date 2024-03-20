@@ -9,7 +9,7 @@ namespace Application.Services.SupplierServices.GetSupllierService.Interface
 {
     public interface IGetSupllierService
     {
-        public Task<List<SupplierDTO>> GetAllSupplier();
+        public Task<List<SupplierDTO>> GetAllSupplier(int pageNumber, int pageSize);
 
     }
 }

@@ -31,11 +31,11 @@ namespace WebApi.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetAllSuppliers()
+        public async Task<IActionResult> GetAllSuppliers(int pageNumber, int pageSize)
         {
             try
             {
-                var suppliers = await _getSupllierService.GetAllSupplier();
+                var suppliers = await _getSupllierService.GetAllSupplier(pageNumber, pageSize);
                 return Ok(suppliers);
             }
             catch (Exception ex)

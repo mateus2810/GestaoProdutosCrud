@@ -17,15 +17,20 @@ namespace Infrastructure.Repositories.SupplierRepository
             _dbSession = dbSession;
         }
 
-        public async Task<List<SupplierModel>> GetAllSuppliers()
+        public async Task<List<SupplierModel>> GetAllSuppliers(int pageNumber, int pageSize)
         {
             List<SupplierModel> suppliers = new List<SupplierModel>();
 
             try
             {
+                int offset = (pageNumber - 1) * pageSize;
+
                 using (var command = _dbSession.Connection.CreateCommand())
                 {
-                    command.CommandText = "SELECT * FROM Fornecedor";
+                    // Modifique a consulta SQL para incluir a cláusula de paginação
+                    command.CommandText = "SELECT * FROM Fornecedor ORDER BY Id OFFSET @Offset ROWS FETCH NEXT @PageSize ROWS ONLY";
+                    command.Parameters.AddWithValue("@PageSize", pageSize);
+                    command.Parameters.AddWithValue("@Offset", offset);
 
                     using (var reader = await command.ExecuteReaderAsync())
                     {
