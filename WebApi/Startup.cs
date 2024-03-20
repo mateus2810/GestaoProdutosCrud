@@ -20,6 +20,8 @@ using Application.Services.ProductServices.DeleteProductService.Interface;
 using Application.Services.SupplierServices.GetSupllierService;
 using Application.Services.SupplierServices.GetSupllierService.Interface;
 using Infrastructure.Repositories.SupplierRepository;
+using Application.Services.SupplierServices.CreateSupllierService.Interface;
+using Application.Services.SupplierServices.CreateSupllierService;
 
 namespace GestaoProdutos
 {
@@ -56,6 +58,7 @@ namespace GestaoProdutos
 
             services.AddScoped<IGetSupllierService, GetSupllierService>();
             services.AddScoped<ISupplierRepository, SupplierRepository>();
+            services.AddScoped<ICreateSupllierService, CreateSupllierService>();
 
         }
 
