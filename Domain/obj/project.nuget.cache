@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Rv3X31R9MenbDW3+3DhWWmAFBzuRPBm4x0lTHTtFrhuuzWr3xUAupxsSejnB1l4yUdzfUAWpUNmNs8NufclYsw==",
+  "dgSpecHash": "nZdLiVqme83I8B8OkTy+BqemswK9SvVonw9hReeiFApwFpwzAqRg3QZFFy53gAnilQMIi70sPL++akkoARqn/g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\mateu\\OneDrive\\Área de Trabalho\\Utilitarios\\projetos\\GestaoProdutosCrud\\Domain\\Domain.csproj",
+  "projectFilePath": "C:\\Users\\mateu\\OneDrive\\Área de Trabalho\\PROJETO AUTOGLASS\\GestaoProdutosCrud\\Domain\\Domain.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\mateu\\.nuget\\packages\\automapper\\10.0.0\\automapper.10.0.0.nupkg.sha512",
     "C:\\Users\\mateu\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",

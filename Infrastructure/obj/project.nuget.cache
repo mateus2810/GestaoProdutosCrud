@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "du2+y9Jc/qF9CS8N8WVqiMtaBPfxNYtPqFoZs+oKWZP/I1lD5GcIrtKr48B7h111u04TyYeh+B7viLK9d2Es7g==",
+  "dgSpecHash": "wliWfnKkfCBPyvNbP2KkBNPHTMUW/XE9LKGEQs07PgIlJV/tt0b0pt0gqPEsAJ8EdzoyOMODzAC/ZUIcYH+4NA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\mateu\\OneDrive\\Área de Trabalho\\Utilitarios\\projetos\\GestaoProdutosCrud\\Infrastructure\\Infrastructure.csproj",
+  "projectFilePath": "C:\\Users\\mateu\\OneDrive\\Área de Trabalho\\PROJETO AUTOGLASS\\GestaoProdutosCrud\\Infrastructure\\Infrastructure.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\mateu\\.nuget\\packages\\automapper\\10.0.0\\automapper.10.0.0.nupkg.sha512",
     "C:\\Users\\mateu\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",

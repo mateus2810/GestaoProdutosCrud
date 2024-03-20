@@ -36,10 +36,11 @@ namespace Infrastructure.Repositories
                             {
                                 Id = reader.GetInt32("Id"),
                                 Descricao = reader["Descricao"].ToString(),
-                                Codigo = reader["Codigo"].ToString(), 
-                                Situacao = Convert.ToBoolean(reader["Situacao"]), 
-                                DataFabricacao = Convert.ToDateTime(reader["DataFabricacao"]), 
-                                DataValidade = Convert.ToDateTime(reader["DataValidade"])
+                                Codigo = reader["Codigo"].ToString(),
+                                Situacao = Convert.ToBoolean(reader["Situacao"]),
+                                DataFabricacao = Convert.ToDateTime(reader["DataFabricacao"]),
+                                DataValidade = Convert.ToDateTime(reader["DataValidade"]),
+                                FornecedorID = reader.IsDBNull(reader.GetOrdinal("FornecedorId")) ? null : (int?)reader.GetInt32(reader.GetOrdinal("FornecedorId"))
                             };
 
                             products.Add(product);
@@ -49,7 +50,7 @@ namespace Infrastructure.Repositories
             }
             catch (Exception ex)
             {
-                
+
                 throw new Exception("Ocorreu um erro ao obter os produtos. Por favor, tente novamente mais tarde.", ex);
             }
             finally
@@ -66,7 +67,7 @@ namespace Infrastructure.Repositories
             {
                 using (var command = _dbSession.Connection.CreateCommand())
                 {
-                    command.CommandText = 
+                    command.CommandText =
                         "INSERT INTO Produto (" +
                             "Descricao, Codigo, Situacao, DataFabricacao, DataValidade, FornecedorId) " +
                         "VALUES " +
@@ -78,7 +79,7 @@ namespace Infrastructure.Repositories
                     command.Parameters.AddWithValue("@DataValidade", product.DataValidade);
                     command.Parameters.AddWithValue("@FornecedorId", product.FornecedorId);
                     await command.ExecuteNonQueryAsync();
-                    
+
                     return true;
                 }
             }
@@ -88,7 +89,7 @@ namespace Infrastructure.Repositories
             }
             finally
             {
-                _dbSession.Dispose();       
+                _dbSession.Dispose();
             }
         }
 
@@ -164,7 +165,7 @@ namespace Infrastructure.Repositories
                                                 f.CNPJ AS CNPJ, 
                                                 f.Nome AS Name
                                             FROM Produto p
-                                            INNER JOIN Fornecedor f ON p.FornecedorId = f.Id
+                                            LEFT JOIN Fornecedor f ON p.FornecedorId = f.Id
                                             WHERE p.Codigo = @Codigo";
                     command.Parameters.AddWithValue("@Codigo", codigo);
 
@@ -174,17 +175,17 @@ namespace Infrastructure.Repositories
                         {
                             ProductSupplierModel productSupplier = new ProductSupplierModel
                             {
-                                ProductId = reader.GetInt32(reader.GetOrdinal("ProductId")),
+                                ProductId = reader.IsDBNull(reader.GetOrdinal("ProductId")) ? 0 : reader.GetInt32(reader.GetOrdinal("ProductId")),
                                 ProductDescription = reader["ProductDescription"].ToString(),
                                 ProductCode = reader["ProductCode"].ToString(),
-                                Situation = Convert.ToBoolean(reader["Situation"]),
-                                ManufactureDate = Convert.ToDateTime(reader["ManufactureDate"]),
-                                ExpiryDate = Convert.ToDateTime(reader["ExpiryDate"]),
-                                SupplierId = reader.GetInt32(reader.GetOrdinal("SupplierId")),
-                                SupplierCode = reader["SupplierCode"].ToString(),
-                                SupplierDescription = reader["SupplierDescription"].ToString(),
-                                CNPJ = reader["CNPJ"].ToString(),
-                                Name = reader["Name"].ToString()
+                                Situation = reader.IsDBNull(reader.GetOrdinal("Situation")) ? false : Convert.ToBoolean(reader["Situation"]),
+                                ManufactureDate = reader.IsDBNull(reader.GetOrdinal("ManufactureDate")) ? DateTime.MinValue : Convert.ToDateTime(reader["ManufactureDate"]),
+                                ExpiryDate = reader.IsDBNull(reader.GetOrdinal("ExpiryDate")) ? DateTime.MinValue : Convert.ToDateTime(reader["ExpiryDate"]),
+                                SupplierId = reader.IsDBNull(reader.GetOrdinal("SupplierId")) ? 0 : reader.GetInt32(reader.GetOrdinal("SupplierId")),
+                                SupplierCode = reader.IsDBNull(reader.GetOrdinal("SupplierCode")) ? null : reader["SupplierCode"].ToString(),
+                                SupplierDescription = reader.IsDBNull(reader.GetOrdinal("SupplierDescription")) ? null : reader["SupplierDescription"].ToString(),
+                                CNPJ = reader.IsDBNull(reader.GetOrdinal("CNPJ")) ? null : reader["CNPJ"].ToString(),
+                                Name = reader.IsDBNull(reader.GetOrdinal("Name")) ? null : reader["Name"].ToString()
                             };
 
                             products.Add(productSupplier);

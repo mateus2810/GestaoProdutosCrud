@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\mateu\\OneDrive\\Área de Trabalho\\Utilitarios\\projetos\\GestaoProdutosCrud\\WebApi\\WebApi.csproj": {}
+    "C:\\Users\\mateu\\OneDrive\\Área de Trabalho\\PROJETO AUTOGLASS\\GestaoProdutosCrud\\WebApi\\WebApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\mateu\\OneDrive\\Área de Trabalho\\Utilitarios\\projetos\\GestaoProdutosCrud\\Application\\Application.csproj": {
+    "C:\\Users\\mateu\\OneDrive\\Área de Trabalho\\PROJETO AUTOGLASS\\GestaoProdutosCrud\\Application\\Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mateu\\OneDrive\\Área de Trabalho\\Utilitarios\\projetos\\GestaoProdutosCrud\\Application\\Application.csproj",
+        "projectUniqueName": "C:\\Users\\mateu\\OneDrive\\Área de Trabalho\\PROJETO AUTOGLASS\\GestaoProdutosCrud\\Application\\Application.csproj",
         "projectName": "Application",
-        "projectPath": "C:\\Users\\mateu\\OneDrive\\Área de Trabalho\\Utilitarios\\projetos\\GestaoProdutosCrud\\Application\\Application.csproj",
+        "projectPath": "C:\\Users\\mateu\\OneDrive\\Área de Trabalho\\PROJETO AUTOGLASS\\GestaoProdutosCrud\\Application\\Application.csproj",
         "packagesPath": "C:\\Users\\mateu\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mateu\\OneDrive\\Área de Trabalho\\Utilitarios\\projetos\\GestaoProdutosCrud\\Application\\obj\\",
+        "outputPath": "C:\\Users\\mateu\\OneDrive\\Área de Trabalho\\PROJETO AUTOGLASS\\GestaoProdutosCrud\\Application\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\mateu\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -28,8 +28,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\mateu\\OneDrive\\Área de Trabalho\\Utilitarios\\projetos\\GestaoProdutosCrud\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\mateu\\OneDrive\\Área de Trabalho\\Utilitarios\\projetos\\GestaoProdutosCrud\\Domain\\Domain.csproj"
+              "C:\\Users\\mateu\\OneDrive\\Área de Trabalho\\PROJETO AUTOGLASS\\GestaoProdutosCrud\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\mateu\\OneDrive\\Área de Trabalho\\PROJETO AUTOGLASS\\GestaoProdutosCrud\\Domain\\Domain.csproj"
               }
             }
           }
@@ -72,14 +72,14 @@
         }
       }
     },
-    "C:\\Users\\mateu\\OneDrive\\Área de Trabalho\\Utilitarios\\projetos\\GestaoProdutosCrud\\Domain\\Domain.csproj": {
+    "C:\\Users\\mateu\\OneDrive\\Área de Trabalho\\PROJETO AUTOGLASS\\GestaoProdutosCrud\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mateu\\OneDrive\\Área de Trabalho\\Utilitarios\\projetos\\GestaoProdutosCrud\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\Users\\mateu\\OneDrive\\Área de Trabalho\\PROJETO AUTOGLASS\\GestaoProdutosCrud\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "C:\\Users\\mateu\\OneDrive\\Área de Trabalho\\Utilitarios\\projetos\\GestaoProdutosCrud\\Domain\\Domain.csproj",
+        "projectPath": "C:\\Users\\mateu\\OneDrive\\Área de Trabalho\\PROJETO AUTOGLASS\\GestaoProdutosCrud\\Domain\\Domain.csproj",
         "packagesPath": "C:\\Users\\mateu\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mateu\\OneDrive\\Área de Trabalho\\Utilitarios\\projetos\\GestaoProdutosCrud\\Domain\\obj\\",
+        "outputPath": "C:\\Users\\mateu\\OneDrive\\Área de Trabalho\\PROJETO AUTOGLASS\\GestaoProdutosCrud\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\mateu\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -140,14 +140,14 @@
         }
       }
     },
-    "C:\\Users\\mateu\\OneDrive\\Área de Trabalho\\Utilitarios\\projetos\\GestaoProdutosCrud\\Infrastructure\\Infrastructure.csproj": {
+    "C:\\Users\\mateu\\OneDrive\\Área de Trabalho\\PROJETO AUTOGLASS\\GestaoProdutosCrud\\Infrastructure\\Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mateu\\OneDrive\\Área de Trabalho\\Utilitarios\\projetos\\GestaoProdutosCrud\\Infrastructure\\Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\mateu\\OneDrive\\Área de Trabalho\\PROJETO AUTOGLASS\\GestaoProdutosCrud\\Infrastructure\\Infrastructure.csproj",
         "projectName": "Infrastructure",
-        "projectPath": "C:\\Users\\mateu\\OneDrive\\Área de Trabalho\\Utilitarios\\projetos\\GestaoProdutosCrud\\Infrastructure\\Infrastructure.csproj",
+        "projectPath": "C:\\Users\\mateu\\OneDrive\\Área de Trabalho\\PROJETO AUTOGLASS\\GestaoProdutosCrud\\Infrastructure\\Infrastructure.csproj",
         "packagesPath": "C:\\Users\\mateu\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mateu\\OneDrive\\Área de Trabalho\\Utilitarios\\projetos\\GestaoProdutosCrud\\Infrastructure\\obj\\",
+        "outputPath": "C:\\Users\\mateu\\OneDrive\\Área de Trabalho\\PROJETO AUTOGLASS\\GestaoProdutosCrud\\Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\mateu\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -164,8 +164,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\mateu\\OneDrive\\Área de Trabalho\\Utilitarios\\projetos\\GestaoProdutosCrud\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\mateu\\OneDrive\\Área de Trabalho\\Utilitarios\\projetos\\GestaoProdutosCrud\\Domain\\Domain.csproj"
+              "C:\\Users\\mateu\\OneDrive\\Área de Trabalho\\PROJETO AUTOGLASS\\GestaoProdutosCrud\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\mateu\\OneDrive\\Área de Trabalho\\PROJETO AUTOGLASS\\GestaoProdutosCrud\\Domain\\Domain.csproj"
               }
             }
           }
@@ -204,14 +204,14 @@
         }
       }
     },
-    "C:\\Users\\mateu\\OneDrive\\Área de Trabalho\\Utilitarios\\projetos\\GestaoProdutosCrud\\WebApi\\WebApi.csproj": {
+    "C:\\Users\\mateu\\OneDrive\\Área de Trabalho\\PROJETO AUTOGLASS\\GestaoProdutosCrud\\WebApi\\WebApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mateu\\OneDrive\\Área de Trabalho\\Utilitarios\\projetos\\GestaoProdutosCrud\\WebApi\\WebApi.csproj",
+        "projectUniqueName": "C:\\Users\\mateu\\OneDrive\\Área de Trabalho\\PROJETO AUTOGLASS\\GestaoProdutosCrud\\WebApi\\WebApi.csproj",
         "projectName": "WebApi",
-        "projectPath": "C:\\Users\\mateu\\OneDrive\\Área de Trabalho\\Utilitarios\\projetos\\GestaoProdutosCrud\\WebApi\\WebApi.csproj",
+        "projectPath": "C:\\Users\\mateu\\OneDrive\\Área de Trabalho\\PROJETO AUTOGLASS\\GestaoProdutosCrud\\WebApi\\WebApi.csproj",
         "packagesPath": "C:\\Users\\mateu\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mateu\\OneDrive\\Área de Trabalho\\Utilitarios\\projetos\\GestaoProdutosCrud\\WebApi\\obj\\",
+        "outputPath": "C:\\Users\\mateu\\OneDrive\\Área de Trabalho\\PROJETO AUTOGLASS\\GestaoProdutosCrud\\WebApi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\mateu\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -228,14 +228,14 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\mateu\\OneDrive\\Área de Trabalho\\Utilitarios\\projetos\\GestaoProdutosCrud\\Application\\Application.csproj": {
-                "projectPath": "C:\\Users\\mateu\\OneDrive\\Área de Trabalho\\Utilitarios\\projetos\\GestaoProdutosCrud\\Application\\Application.csproj"
+              "C:\\Users\\mateu\\OneDrive\\Área de Trabalho\\PROJETO AUTOGLASS\\GestaoProdutosCrud\\Application\\Application.csproj": {
+                "projectPath": "C:\\Users\\mateu\\OneDrive\\Área de Trabalho\\PROJETO AUTOGLASS\\GestaoProdutosCrud\\Application\\Application.csproj"
               },
-              "C:\\Users\\mateu\\OneDrive\\Área de Trabalho\\Utilitarios\\projetos\\GestaoProdutosCrud\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\mateu\\OneDrive\\Área de Trabalho\\Utilitarios\\projetos\\GestaoProdutosCrud\\Domain\\Domain.csproj"
+              "C:\\Users\\mateu\\OneDrive\\Área de Trabalho\\PROJETO AUTOGLASS\\GestaoProdutosCrud\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\mateu\\OneDrive\\Área de Trabalho\\PROJETO AUTOGLASS\\GestaoProdutosCrud\\Domain\\Domain.csproj"
               },
-              "C:\\Users\\mateu\\OneDrive\\Área de Trabalho\\Utilitarios\\projetos\\GestaoProdutosCrud\\Infrastructure\\Infrastructure.csproj": {
-                "projectPath": "C:\\Users\\mateu\\OneDrive\\Área de Trabalho\\Utilitarios\\projetos\\GestaoProdutosCrud\\Infrastructure\\Infrastructure.csproj"
+              "C:\\Users\\mateu\\OneDrive\\Área de Trabalho\\PROJETO AUTOGLASS\\GestaoProdutosCrud\\Infrastructure\\Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\mateu\\OneDrive\\Área de Trabalho\\PROJETO AUTOGLASS\\GestaoProdutosCrud\\Infrastructure\\Infrastructure.csproj"
               }
             }
           }

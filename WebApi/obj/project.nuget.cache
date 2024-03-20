@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "YtQTeLEcU7CPSqGeE7cuDFgCfXUSsYsBLKdho9ccRfTN5AWcQCG64bDwdUHqY7YlMYj+EScmiLtsMpEbTDaX6Q==",
+  "dgSpecHash": "Dyy9vcFiTO2zhVO5GgwtkfgHoE5YmTyCzK0T1tSSO7X+CpTPejCxPM7h60YNdlIwkhtjuTzmEAATgxCG2q2GOg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\mateu\\OneDrive\\Área de Trabalho\\Utilitarios\\projetos\\GestaoProdutosCrud\\WebApi\\WebApi.csproj",
+  "projectFilePath": "C:\\Users\\mateu\\OneDrive\\Área de Trabalho\\PROJETO AUTOGLASS\\GestaoProdutosCrud\\WebApi\\WebApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\mateu\\.nuget\\packages\\automapper\\11.0.0\\automapper.11.0.0.nupkg.sha512",
     "C:\\Users\\mateu\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",

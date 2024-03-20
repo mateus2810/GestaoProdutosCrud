@@ -10,7 +10,7 @@ namespace Domain.Model
         public bool Situation { get; set; }
         public DateTime ManufactureDate { get; set; }
         public DateTime ExpiryDate { get; set; }
-        public int SupplierId { get; set; }
+        public int? SupplierId { get; set; }
         public string SupplierCode { get; set; }
         public string SupplierDescription { get; set; }
         public string CNPJ { get; set; }
