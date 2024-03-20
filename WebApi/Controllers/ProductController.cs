@@ -30,13 +30,11 @@ namespace WebApi.Controllers
             _deleteProductService = deleteProductService;
         }
 
-        // Rota GET: api/Exemplo
         [HttpGet]
-        public async Task<IActionResult> GetAllProduct() // Marcar o método como async
+        public async Task<IActionResult> GetAllProduct()
         {
             var products = await _getProductService.GetAllProduct();
 
-            //verificar possivel melhoria metodo
             if (products.Count == 0)
             {
                 return NoContent();
@@ -52,16 +50,14 @@ namespace WebApi.Controllers
 
             if (success)
             {
-                return Ok(); // Produto criado com sucesso
+                return Ok();
             }
             else
             {
-                return BadRequest(errorMessage); // Falha na criação do produto
+                return BadRequest(errorMessage);
             }
         }
 
-
-        //VERIFICAR VALIDAÇÕES DE ENTRADA
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateProduct(int id, [FromBody] ProductInput product)
         {
@@ -74,11 +70,11 @@ namespace WebApi.Controllers
 
             if (success)
             {
-                return NoContent(); // Produto criado com sucesso
+                return NoContent(); 
             }
             else
             {
-                return BadRequest(errorMessage); // Falha na criação do produto
+                return BadRequest(errorMessage); 
             }
         }
 
@@ -98,7 +94,7 @@ namespace WebApi.Controllers
                 return NotFound();
             }
 
-            return NoContent(); // Retornar 204 (No Content) se o produto foi deletado com sucesso
+            return NoContent();
         }
 
         [HttpGet("{codigo}")]
@@ -118,6 +114,6 @@ namespace WebApi.Controllers
 
             return Ok(product);
         }
-    }
 
+    }
 }

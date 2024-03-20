@@ -44,8 +44,6 @@ namespace WebApi.Controllers
             }
         }
 
-
-        // Rota POST: /Supplier
         [HttpPost]
         public async Task<IActionResult> CreateSupplier([FromBody] SupplierInput supplierInput)
         {
@@ -56,18 +54,15 @@ namespace WebApi.Controllers
 
             var supplier = await _createSupllierService.CreateSupplier(supplierInput);
 
-            // Verifica se o ID retornado é válido
             if (supplier)
             {
                 return Ok(supplier);
-                //return CreatedAtRoute(nameof(GetSupplierById), new { id = supplierId }, null);
             }
             else
             {
                 return StatusCode(500, "Erro ao criar o fornecedor");
             }
         }
-
 
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateSupplier(int id, [FromBody] SupplierInput supplierInput)
@@ -81,16 +76,14 @@ namespace WebApi.Controllers
 
             if (success)
             {
-                return NoContent(); // 204 No Content
+                return NoContent();
             }
             else
             {
-                return NotFound(); // 404 Not Found
+                return NotFound();
             }
         }
 
-
-        // Rota DELETE: api/Supplier/{id}
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteSupplier(int id)
         {
@@ -101,7 +94,6 @@ namespace WebApi.Controllers
             }
             return NoContent();
         }
-
     }
 }
 

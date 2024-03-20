@@ -21,13 +21,13 @@ namespace Application.Services.CreateProductService
             try
             {
                 ProductValidation.Validate(productInput);
-                var addedProduct = await _productRepository.InsertProduct(productInput);
+                var addedProduct = await _productRepository.CreateProduct(productInput);
                 
-                return (true, null); // Operação bem-sucedida
+                return (true, null);
             }
             catch (ArgumentException ex)
             {
-                return (false, ex.Message); // Falha na validação
+                return (false, ex.Message);
             }
         }
     }

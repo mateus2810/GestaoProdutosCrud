@@ -8,7 +8,7 @@ namespace Domain.Interfaces
     public interface IProductRepository
     {
         public Task<List<ProductModel>> GetAllProduct();
-        public Task<bool> InsertProduct(ProductInput product);
+        public Task<bool> CreateProduct(ProductInput product);
         public Task<bool> UpdateProduct(int id, ProductInput product);
         public Task<bool> DeleteProduct(int id);
         public Task<List<ProductSupplierModel>> GetProductByCode(string codigo);

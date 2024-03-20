@@ -17,8 +17,6 @@ C:\Users\mateu\OneDrive\Área de Trabalho\Utilitarios\projetos\GestaoProdutosCru
 C:\Users\mateu\OneDrive\Área de Trabalho\Utilitarios\projetos\GestaoProdutosCrud\WebApi\obj\Debug\net5.0\WebApi.csproj.CoreCompileInputs.cache
 C:\Users\mateu\OneDrive\Área de Trabalho\Utilitarios\projetos\GestaoProdutosCrud\WebApi\obj\Debug\net5.0\WebApi.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\mateu\OneDrive\Área de Trabalho\Utilitarios\projetos\GestaoProdutosCrud\WebApi\obj\Debug\net5.0\WebApi.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\mateu\OneDrive\Área de Trabalho\Utilitarios\projetos\GestaoProdutosCrud\WebApi\obj\Debug\net5.0\scopedcss\bundle\WebApi.styles.css
-C:\Users\mateu\OneDrive\Área de Trabalho\Utilitarios\projetos\GestaoProdutosCrud\WebApi\obj\Debug\net5.0\staticwebassets\WebApi.StaticWebAssets.Manifest.cache
 C:\Users\mateu\OneDrive\Área de Trabalho\Utilitarios\projetos\GestaoProdutosCrud\WebApi\obj\Debug\net5.0\WebApi.RazorTargetAssemblyInfo.cache
 C:\Users\mateu\OneDrive\Área de Trabalho\Utilitarios\projetos\GestaoProdutosCrud\WebApi\obj\Debug\net5.0\WebApi.csproj.CopyComplete
 C:\Users\mateu\OneDrive\Área de Trabalho\Utilitarios\projetos\GestaoProdutosCrud\WebApi\obj\Debug\net5.0\WebApi.dll
@@ -97,3 +95,17 @@ C:\Users\mateu\OneDrive\Área de Trabalho\Utilitarios\projetos\GestaoProdutosCru
 C:\Users\mateu\OneDrive\Área de Trabalho\Utilitarios\projetos\GestaoProdutosCrud\WebApi\bin\Debug\net5.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 C:\Users\mateu\OneDrive\Área de Trabalho\Utilitarios\projetos\GestaoProdutosCrud\WebApi\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
 C:\Users\mateu\OneDrive\Área de Trabalho\Utilitarios\projetos\GestaoProdutosCrud\WebApi\bin\Debug\net5.0\Microsoft.Extensions.Options.dll
+C:\Users\mateu\OneDrive\Área de Trabalho\Utilitarios\projetos\GestaoProdutosCrud\WebApi\bin\Debug\net5.0\Castle.Core.dll
+C:\Users\mateu\OneDrive\Área de Trabalho\Utilitarios\projetos\GestaoProdutosCrud\WebApi\bin\Debug\net5.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\mateu\OneDrive\Área de Trabalho\Utilitarios\projetos\GestaoProdutosCrud\WebApi\bin\Debug\net5.0\Microsoft.AspNetCore.Mvc.Razor.Extensions.dll
+C:\Users\mateu\OneDrive\Área de Trabalho\Utilitarios\projetos\GestaoProdutosCrud\WebApi\bin\Debug\net5.0\Microsoft.AspNetCore.Razor.Language.dll
+C:\Users\mateu\OneDrive\Área de Trabalho\Utilitarios\projetos\GestaoProdutosCrud\WebApi\bin\Debug\net5.0\Microsoft.CodeAnalysis.dll
+C:\Users\mateu\OneDrive\Área de Trabalho\Utilitarios\projetos\GestaoProdutosCrud\WebApi\bin\Debug\net5.0\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\mateu\OneDrive\Área de Trabalho\Utilitarios\projetos\GestaoProdutosCrud\WebApi\bin\Debug\net5.0\Microsoft.CodeAnalysis.Razor.dll
+C:\Users\mateu\OneDrive\Área de Trabalho\Utilitarios\projetos\GestaoProdutosCrud\WebApi\bin\Debug\net5.0\Microsoft.DotNet.PlatformAbstractions.dll
+C:\Users\mateu\OneDrive\Área de Trabalho\Utilitarios\projetos\GestaoProdutosCrud\WebApi\bin\Debug\net5.0\Microsoft.Extensions.DependencyModel.dll
+C:\Users\mateu\OneDrive\Área de Trabalho\Utilitarios\projetos\GestaoProdutosCrud\WebApi\bin\Debug\net5.0\Moq.dll
+C:\Users\mateu\OneDrive\Área de Trabalho\Utilitarios\projetos\GestaoProdutosCrud\WebApi\bin\Debug\net5.0\Newtonsoft.Json.dll
+C:\Users\mateu\OneDrive\Área de Trabalho\Utilitarios\projetos\GestaoProdutosCrud\WebApi\bin\Debug\net5.0\Newtonsoft.Json.Bson.dll
+C:\Users\mateu\OneDrive\Área de Trabalho\Utilitarios\projetos\GestaoProdutosCrud\WebApi\obj\Debug\net5.0\WebApi.RazorAssemblyInfo.cache
+C:\Users\mateu\OneDrive\Área de Trabalho\Utilitarios\projetos\GestaoProdutosCrud\WebApi\obj\Debug\net5.0\WebApi.RazorAssemblyInfo.cs

@@ -36,7 +36,7 @@ namespace Infrastructure.Repositories
                             {
                                 Id = reader.GetInt32("Id"),
                                 Descricao = reader["Descricao"].ToString(),
-                                Codigo = reader.GetInt32("Codigo"), 
+                                Codigo = reader["Codigo"].ToString(), 
                                 Situacao = Convert.ToBoolean(reader["Situacao"]), 
                                 DataFabricacao = Convert.ToDateTime(reader["DataFabricacao"]), 
                                 DataValidade = Convert.ToDateTime(reader["DataValidade"])
@@ -54,30 +54,32 @@ namespace Infrastructure.Repositories
             }
             finally
             {
-                _dbSession.Dispose(); // Garante que a conexão seja fechada
+                _dbSession.Dispose();
             }
 
             return products;
         }
 
-
-
-        public async Task<bool> InsertProduct(ProductInput product)
+        public async Task<bool> CreateProduct(ProductInput product)
         {
             try
             {
                 using (var command = _dbSession.Connection.CreateCommand())
                 {
-                    command.CommandText = "INSERT INTO Produto (Descricao, Codigo, Situacao, DataFabricacao, DataValidade) VALUES (@Descricao, @Codigo, @Situacao, @DataFabricacao, @DataValidade)";
+                    command.CommandText = 
+                        "INSERT INTO Produto (" +
+                            "Descricao, Codigo, Situacao, DataFabricacao, DataValidade, FornecedorId) " +
+                        "VALUES " +
+                            "(@Descricao, @Codigo, @Situacao, @DataFabricacao, @DataValidade, @FornecedorId)";
                     command.Parameters.AddWithValue("@Descricao", product.Descricao);
                     command.Parameters.AddWithValue("@Codigo", product.Codigo);
                     command.Parameters.AddWithValue("@Situacao", product.Situacao);
                     command.Parameters.AddWithValue("@DataFabricacao", product.DataFabricacao);
                     command.Parameters.AddWithValue("@DataValidade", product.DataValidade);
+                    command.Parameters.AddWithValue("@FornecedorId", product.FornecedorId);
                     await command.ExecuteNonQueryAsync();
                     
                     return true;
-                    //ver sobre ponto de inserção do fornecedorID
                 }
             }
             catch (Exception ex)
@@ -86,7 +88,7 @@ namespace Infrastructure.Repositories
             }
             finally
             {
-                _dbSession.Dispose(); // Garante que a conexão seja fechada          
+                _dbSession.Dispose();       
             }
         }
 
@@ -110,7 +112,6 @@ namespace Infrastructure.Repositories
             }
             catch (Exception ex)
             {
-                // Tratar exceção, se necessário
                 throw new Exception("Ocorreu um erro ao atualizar o produto.", ex);
             }
             finally
@@ -130,17 +131,16 @@ namespace Infrastructure.Repositories
                     command.Parameters.AddWithValue("@Id", id);
                     await command.ExecuteNonQueryAsync();
 
-                    return true; // Retorna true se a exclusão for bem-sucedida
+                    return true;
                 }
             }
             catch (Exception ex)
             {
-                // Trate a exceção aqui, se necessário
                 throw new Exception("Ocorreu um erro ao excluir o produto.", ex);
             }
             finally
             {
-                _dbSession.Dispose(); // Garante que a conexão seja fechada
+                _dbSession.Dispose();
             }
         }
 
@@ -194,12 +194,11 @@ namespace Infrastructure.Repositories
             }
             catch (Exception ex)
             {
-                // Handle exceptions here
                 throw new Exception("An error occurred while retrieving the product by code.", ex);
             }
             finally
             {
-                _dbSession.Dispose(); // Ensure connection is closed
+                _dbSession.Dispose();
             }
 
             return products;

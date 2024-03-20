@@ -22,14 +22,13 @@ namespace Application.Services.ProductServices.UpdateProductService
             try
             {
                 ProductValidation.Validate(productInput);
-                //validar nome
                 var productUpdate = await _productRepository.UpdateProduct(id, productInput);
 
-                return (true, null); // Operação bem-sucedida
+                return (true, null);
             }
             catch (Exception ex)
             {
-                return (false, ex.Message); // Falha na validação
+                return (false, ex.Message);
             }
         }
     }

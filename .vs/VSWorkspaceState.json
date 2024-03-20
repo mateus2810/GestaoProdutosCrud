@@ -1,6 +1,11 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Domain",
+    "\\Domain\\Input",
+    "\\WebApi",
+    "\\WebApi\\Controllers"
   ],
+  "SelectedNode": "\\WebApi\\WebApi.sln",
   "PreviewInSolutionExplorer": false
 }

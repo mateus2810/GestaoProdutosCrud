@@ -4,8 +4,6 @@ using Domain.Interfaces;
 using Domain.Model;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Infrastructure.Repositories.SupplierRepository
@@ -49,12 +47,11 @@ namespace Infrastructure.Repositories.SupplierRepository
             }
             catch (Exception ex)
             {
-                // Lidar com exceções aqui
                 throw new Exception("Ocorreu um erro ao obter os fornecedores.", ex);
             }
             finally
             {
-                _dbSession.Dispose(); // Garantir que a conexão seja fechada
+                _dbSession.Dispose();
             }
 
             return suppliers;
@@ -73,19 +70,17 @@ namespace Infrastructure.Repositories.SupplierRepository
                     command.Parameters.AddWithValue("@CNPJ", supplierInput.CNPJ);
                     command.Parameters.AddWithValue("@Nome", supplierInput.Nome);
 
-                    // Executa o comando do fornecedor inserido
                     await command.ExecuteNonQueryAsync();
                     return true;
                 }
             }
             catch (Exception ex)
             {
-                // Trate a exceção aqui ou relance para ser tratada em níveis superiores
                 throw new Exception("Erro ao inserir o fornecedor.", ex);
             }
             finally
             {
-                _dbSession.Dispose(); // Garante que a conexão seja fechada
+                _dbSession.Dispose();
             }
         }
 
@@ -95,7 +90,9 @@ namespace Infrastructure.Repositories.SupplierRepository
             {
                 using (var command = _dbSession.Connection.CreateCommand())
                 {
-                    command.CommandText = "UPDATE Fornecedor SET Codigo = @Codigo, Descricao = @Descricao, CNPJ = @CNPJ, Nome = @Nome WHERE Id = @Id";
+                    command.CommandText =
+                        "UPDATE Fornecedor " +
+                        "SET Codigo = @Codigo, Descricao = @Descricao, CNPJ = @CNPJ, Nome = @Nome WHERE Id = @Id";
                     command.Parameters.AddWithValue("@Codigo", supplierInput.Codigo);
                     command.Parameters.AddWithValue("@Descricao", supplierInput.Descricao);
                     command.Parameters.AddWithValue("@CNPJ", supplierInput.CNPJ);
@@ -109,12 +106,11 @@ namespace Infrastructure.Repositories.SupplierRepository
             }
             catch (Exception ex)
             {
-                // Trate a exceção conforme necessário
                 throw new Exception("Ocorreu um erro ao atualizar o fornecedor.", ex);
             }
             finally
             {
-                _dbSession.Dispose(); // Garante que a conexão seja fechada
+                _dbSession.Dispose();
             }
         }
 
@@ -133,12 +129,11 @@ namespace Infrastructure.Repositories.SupplierRepository
             }
             catch (Exception ex)
             {
-                // Tratar exceção aqui, se necessário
                 throw new Exception("Ocorreu um erro ao excluir o fornecedor.", ex);
             }
             finally
             {
-                _dbSession.Dispose(); // Garantir que a conexão seja fechada
+                _dbSession.Dispose();
             }
         }
     }

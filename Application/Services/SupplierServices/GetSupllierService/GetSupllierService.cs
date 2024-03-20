@@ -20,7 +20,6 @@ namespace Application.Services.SupplierServices.GetSupllierService
             _mapper = mapper;
         }
 
-
         public async Task<List<SupplierDTO>> GetAllSupplier()
         {
             var listSupplier = await _supplierRepository.GetAllSuppliers();

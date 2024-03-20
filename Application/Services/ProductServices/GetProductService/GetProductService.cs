@@ -24,7 +24,6 @@ namespace Application.Services.ProductServices.GetProductService
         {
             var products = await _productRepository.GetAllProduct();
 
-            // Use AutoMapper para mapear a lista de objetos obtidos do repositório para uma lista de DTOs
             var productDTOs = _mapper.Map<List<ProductDTO>>(products);
 
             return productDTOs;
