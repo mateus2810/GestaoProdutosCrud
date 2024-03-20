@@ -1,4 +1,5 @@
 ﻿using Data.Repositories.Base;
+using Domain.Input;
 using Domain.Interfaces;
 using Domain.Model;
 using System;
@@ -35,7 +36,7 @@ namespace Infrastructure.Repositories
                             {
                                 Id = reader.GetInt32("Id"),
                                 Descricao = reader["Descricao"].ToString(),
-                                Codigo = reader["Codigo"].ToString(), 
+                                Codigo = reader.GetInt32("Codigo"), 
                                 Situacao = Convert.ToBoolean(reader["Situacao"]), 
                                 DataFabricacao = Convert.ToDateTime(reader["DataFabricacao"]), 
                                 DataValidade = Convert.ToDateTime(reader["DataValidade"])
@@ -57,6 +58,36 @@ namespace Infrastructure.Repositories
             }
 
             return products;
+        }
+
+
+
+        public async Task<bool> InsertProduct(ProductInput product)
+        {
+            try
+            {
+                using (var command = _dbSession.Connection.CreateCommand())
+                {
+                    command.CommandText = "INSERT INTO Produto (Descricao, Codigo, Situacao, DataFabricacao, DataValidade) VALUES (@Descricao, @Codigo, @Situacao, @DataFabricacao, @DataValidade)";
+                    command.Parameters.AddWithValue("@Descricao", product.Descricao);
+                    command.Parameters.AddWithValue("@Codigo", product.Codigo);
+                    command.Parameters.AddWithValue("@Situacao", product.Situacao);
+                    command.Parameters.AddWithValue("@DataFabricacao", product.DataFabricacao);
+                    command.Parameters.AddWithValue("@DataValidade", product.DataValidade);
+                    await command.ExecuteNonQueryAsync();
+                    
+                    return true;
+                    //ver sobre ponto de inserção do fornecedorID
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Ocorreu um erro ao inserir o produto.", ex);
+            }
+            finally
+            {
+                _dbSession.Dispose(); // Garante que a conexão seja fechada          
+            }
         }
     }
 }

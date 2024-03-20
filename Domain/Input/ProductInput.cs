@@ -1,14 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Domain.Model
+namespace Domain.Input
 {
-    public class ProductModel
+    public class ProductInput
     {
-        public int Id { get; set; }
         public string Descricao { get; set; }
         public int Codigo { get; set; }
         public bool Situacao { get; set; }

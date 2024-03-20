@@ -11,6 +11,8 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using AutoMapper;
 using Application.Mapping;
+using Application.Services.ProductServices.CreateProductService.Interface;
+using Application.Services.CreateProductService;
 
 namespace GestaoProdutos
 {
@@ -41,6 +43,7 @@ namespace GestaoProdutos
 
             services.AddScoped<IGetProductService, GetProductService>();
             services.AddScoped<IProductRepository, ProductRepository>();
+            services.AddScoped<ICreateProductServices, CreateProductServices>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

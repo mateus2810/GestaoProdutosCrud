@@ -1,12 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using Application.Services.ProductServices.CreateProductService.Interface;
+using Domain.Input;
+using Domain.Interfaces;
 using System.Threading.Tasks;
 
 namespace Application.Services.CreateProductService
 {
-    internal class CreateProductServices
+    public  class CreateProductServices : ICreateProductServices
     {
+        private readonly IProductRepository _productRepository;
+        public CreateProductServices(IProductRepository productRepository)
+        {
+            _productRepository = productRepository;
+        }
+
+
+        public async Task<bool> CreateProduct(ProductInput productInput)
+        {
+            var product = await _productRepository.InsertProduct(productInput);
+
+            return product;
+        }
     }
 }

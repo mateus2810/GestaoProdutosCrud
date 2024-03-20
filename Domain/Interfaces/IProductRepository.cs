@@ -1,4 +1,5 @@
-﻿using Domain.Model;
+﻿using Domain.Input;
+using Domain.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,5 +11,6 @@ namespace Domain.Interfaces
     public interface IProductRepository
     {
         public Task<List<ProductModel>> GetAllProduct();
+        public Task<bool> InsertProduct(ProductInput product);
     }
 }
