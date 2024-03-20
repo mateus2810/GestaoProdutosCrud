@@ -17,6 +17,9 @@ using Application.Services.ProductServices.UpdateProductService.Interface;
 using Application.Services.ProductServices.UpdateProductService;
 using Application.Services.ProductServices.DeleteProductService;
 using Application.Services.ProductServices.DeleteProductService.Interface;
+using Application.Services.SupplierServices.GetSupllierService;
+using Application.Services.SupplierServices.GetSupllierService.Interface;
+using Infrastructure.Repositories.SupplierRepository;
 
 namespace GestaoProdutos
 {
@@ -50,6 +53,10 @@ namespace GestaoProdutos
             services.AddScoped<ICreateProductServices, CreateProductServices>();
             services.AddScoped<IUpdateProductService, UpdateProductService>();
             services.AddScoped<IDeleteProductService, DeleteProductService>();
+
+            services.AddScoped<IGetSupllierService, GetSupllierService>();
+            services.AddScoped<ISupplierRepository, SupplierRepository>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

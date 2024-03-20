@@ -10,6 +10,7 @@ namespace Application.Mapping
         public AutoMapperProfile()
         {
             CreateMap<ProductModel, ProductDTO>(); // Mapeia a classe de domínio ProductModel para a classe DTO ProductDTO
+            CreateMap<SupplierModel, SupplierDTO>(); // Mapeia a classe de domínio SupplierModel para a classe DTO SupplierDTO
         }
     }
 }
