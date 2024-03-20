@@ -36,8 +36,11 @@ namespace Infrastructure.Repositories
                         {
                             ProductModel product = new ProductModel
                             {
-                                // Preencha o objeto ProductModel com os dados do leitor
-                                Descricao = reader["Descricao"].ToString()
+                                Descricao = reader["Descricao"].ToString(),
+                                Codigo = reader["Codigo"].ToString(), 
+                                Situacao = Convert.ToBoolean(reader["Situacao"]), 
+                                DataFabricacao = Convert.ToDateTime(reader["DataFabricacao"]), 
+                                DataValidade = Convert.ToDateTime(reader["DataValidade"])
                             };
 
                             products.Add(product);
