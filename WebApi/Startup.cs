@@ -13,6 +13,10 @@ using AutoMapper;
 using Application.Mapping;
 using Application.Services.ProductServices.CreateProductService.Interface;
 using Application.Services.CreateProductService;
+using Application.Services.ProductServices.UpdateProductService.Interface;
+using Application.Services.ProductServices.UpdateProductService;
+using Application.Services.ProductServices.DeleteProductService;
+using Application.Services.ProductServices.DeleteProductService.Interface;
 
 namespace GestaoProdutos
 {
@@ -44,6 +48,8 @@ namespace GestaoProdutos
             services.AddScoped<IGetProductService, GetProductService>();
             services.AddScoped<IProductRepository, ProductRepository>();
             services.AddScoped<ICreateProductServices, CreateProductServices>();
+            services.AddScoped<IUpdateProductService, UpdateProductService>();
+            services.AddScoped<IDeleteProductService, DeleteProductService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

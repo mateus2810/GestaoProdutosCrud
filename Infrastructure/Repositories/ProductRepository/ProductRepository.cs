@@ -89,5 +89,59 @@ namespace Infrastructure.Repositories
                 _dbSession.Dispose(); // Garante que a conexão seja fechada          
             }
         }
+
+        public async Task<bool> UpdateProduct(int productId, ProductInput product)
+        {
+            try
+            {
+                using (var command = _dbSession.Connection.CreateCommand())
+                {
+                    command.CommandText = "UPDATE Produto SET Descricao = @Descricao, Codigo = @Codigo, Situacao = @Situacao, DataFabricacao = @DataFabricacao, DataValidade = @DataValidade WHERE Id = @ProductId";
+                    command.Parameters.AddWithValue("@Descricao", product.Descricao);
+                    command.Parameters.AddWithValue("@Codigo", product.Codigo);
+                    command.Parameters.AddWithValue("@Situacao", product.Situacao);
+                    command.Parameters.AddWithValue("@DataFabricacao", product.DataFabricacao);
+                    command.Parameters.AddWithValue("@DataValidade", product.DataValidade);
+                    command.Parameters.AddWithValue("@ProductId", productId);
+                    await command.ExecuteNonQueryAsync();
+
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                // Tratar exceção, se necessário
+                throw new Exception("Ocorreu um erro ao atualizar o produto.", ex);
+            }
+            finally
+            {
+                _dbSession.Dispose();
+            }
+        }
+
+
+        public async Task<bool> DeleteProduct(int id)
+        {
+            try
+            {
+                using (var command = _dbSession.Connection.CreateCommand())
+                {
+                    command.CommandText = "DELETE FROM Produto WHERE Id = @Id";
+                    command.Parameters.AddWithValue("@Id", id);
+                    await command.ExecuteNonQueryAsync();
+
+                    return true; // Retorna true se a exclusão for bem-sucedida
+                }
+            }
+            catch (Exception ex)
+            {
+                // Trate a exceção aqui, se necessário
+                throw new Exception("Ocorreu um erro ao excluir o produto.", ex);
+            }
+            finally
+            {
+                _dbSession.Dispose(); // Garante que a conexão seja fechada
+            }
+        }
     }
 }

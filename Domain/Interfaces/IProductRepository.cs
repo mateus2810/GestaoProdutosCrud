@@ -12,5 +12,7 @@ namespace Domain.Interfaces
     {
         public Task<List<ProductModel>> GetAllProduct();
         public Task<bool> InsertProduct(ProductInput product);
+        public Task<bool> UpdateProduct(int id, ProductInput product);
+        public Task<bool> DeleteProduct(int id);
     }
 }
