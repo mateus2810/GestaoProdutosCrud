@@ -15,22 +15,19 @@ namespace Application.Services.ProductServices.GetProductService
         private readonly IProductRepository _productRepository;
         private readonly IMapper _mapper;
 
-        public GetProductService(IProductRepository productRepository, IMapper mapper) // Adicione IMapper ao construtor
+        public GetProductService(IProductRepository productRepository, IMapper mapper)
         {
             _productRepository = productRepository;
             _mapper = mapper;
         }
-        public async Task<ProductDTO> GetAllProduct()
+        public async Task<List<ProductDTO>> GetAllProduct()
         {
             var products = await _productRepository.GetAllProduct();
 
             // Use AutoMapper para mapear a lista de objetos obtidos do repositório para uma lista de DTOs
             var productDTOs = _mapper.Map<List<ProductDTO>>(products);
 
-            // Você pode manipular ou processar a lista de DTOs aqui, se necessário
-
-            // Por enquanto, vamos apenas retornar o primeiro produto da lista como exemplo
-            return productDTOs.FirstOrDefault();
+            return productDTOs;
         }
     }
 }

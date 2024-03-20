@@ -18,8 +18,14 @@ namespace WebApi.Controllers
         [HttpGet]
         public async Task<IActionResult> Get() // Marcar o método como async
         {
-            var retorno = await _getProductService.GetAllProduct();
-            return Ok("Olá, mundo!, o retorno é :" + retorno.Id);
+            var products = await _getProductService.GetAllProduct();
+
+            //verificar possivel melhoria metodo
+            if (products.Count == 0)
+            {
+                return NoContent();
+            }
+            return Ok(products);
         }
     }
 }

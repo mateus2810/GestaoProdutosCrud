@@ -1,11 +1,10 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using Data.Repositories.Base;
+using Domain.Interfaces;
+using Domain.Model;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Threading.Tasks;
-using Data.Repositories.Base;
-using Domain.Interfaces;
-using Domain.Model;
 
 namespace Infrastructure.Repositories
 {
@@ -24,8 +23,6 @@ namespace Infrastructure.Repositories
 
             try
             {
-                //_dbSession.ValidaConexao(); // Garante que a conexão esteja aberta
-
                 using (var command = _dbSession.Connection.CreateCommand())
                 {
                     command.CommandText = "SELECT * FROM Produto";
@@ -36,6 +33,7 @@ namespace Infrastructure.Repositories
                         {
                             ProductModel product = new ProductModel
                             {
+                                Id = reader.GetInt32("Id"),
                                 Descricao = reader["Descricao"].ToString(),
                                 Codigo = reader["Codigo"].ToString(), 
                                 Situacao = Convert.ToBoolean(reader["Situacao"]), 
@@ -50,7 +48,8 @@ namespace Infrastructure.Repositories
             }
             catch (Exception ex)
             {
-                // Trate exceções aqui
+                
+                throw new Exception("Ocorreu um erro ao obter os produtos. Por favor, tente novamente mais tarde.", ex);
             }
             finally
             {
