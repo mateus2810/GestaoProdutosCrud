@@ -119,5 +119,28 @@ namespace Infrastructure.Repositories.SupplierRepository
         }
 
 
+        public async Task<bool> DeleteSupplier(int id)
+        {
+            try
+            {
+                using (var command = _dbSession.Connection.CreateCommand())
+                {
+                    command.CommandText = "DELETE FROM Fornecedor WHERE Id = @Id";
+                    command.Parameters.AddWithValue("@Id", id);
+                    await command.ExecuteNonQueryAsync();
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                // Tratar exceção aqui, se necessário
+                throw new Exception("Ocorreu um erro ao excluir o fornecedor.", ex);
+            }
+            finally
+            {
+                _dbSession.Dispose(); // Garantir que a conexão seja fechada
+            }
+        }
     }
 }
+

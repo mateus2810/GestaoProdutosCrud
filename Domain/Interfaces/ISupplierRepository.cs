@@ -10,5 +10,6 @@ namespace Domain.Interfaces
         public Task<List<SupplierModel>> GetAllSuppliers();
         public Task<bool> CreateSupplier(SupplierInput supplierInput);
         public Task<bool> UpdateSupplier(int id, SupplierInput supplierInput);
+        public Task<bool> DeleteSupplier(int id);
     }
 }

@@ -24,6 +24,8 @@ using Application.Services.SupplierServices.CreateSupllierService.Interface;
 using Application.Services.SupplierServices.CreateSupllierService;
 using Application.Services.SupplierServices.UpdateSupllierService.Interface;
 using Application.Services.SupplierServices.UpdateSupllierService;
+using Application.Services.SupplierServices.DeleteSupllierService.Interface;
+using Application.Services.SupplierServices.DeleteSupllierService;
 
 namespace GestaoProdutos
 {
@@ -62,6 +64,7 @@ namespace GestaoProdutos
             services.AddScoped<ISupplierRepository, SupplierRepository>();
             services.AddScoped<ICreateSupllierService, CreateSupllierService>();
             services.AddScoped<IUpdateSupllierService, UpdateSupllierService>();
+            services.AddScoped<IDeleteSupplierService, DeleteSupllierService>();
 
 
         }

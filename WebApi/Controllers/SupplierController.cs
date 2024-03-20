@@ -1,4 +1,5 @@
 ﻿using Application.Services.SupplierServices.CreateSupllierService.Interface;
+using Application.Services.SupplierServices.DeleteSupllierService.Interface;
 using Application.Services.SupplierServices.GetSupllierService.Interface;
 using Application.Services.SupplierServices.UpdateSupllierService.Interface;
 using Domain.Input;
@@ -15,15 +16,18 @@ namespace WebApi.Controllers
         private readonly IGetSupllierService _getSupllierService;
         private readonly ICreateSupllierService _createSupllierService;
         private readonly IUpdateSupllierService _updateSupllierService;
+        private readonly IDeleteSupplierService _deleteSupplierService;
 
         public SupplierController(
             IGetSupllierService getSupllierService,
             ICreateSupllierService createSupllierService,
-            IUpdateSupllierService updateSupllierService)
+            IUpdateSupllierService updateSupllierService,
+            IDeleteSupplierService deleteSupplierService)
         {
             _getSupllierService = getSupllierService;
             _createSupllierService = createSupllierService;
             _updateSupllierService = updateSupllierService;
+            _deleteSupplierService = deleteSupplierService;
         }
 
         [HttpGet]
@@ -84,6 +88,20 @@ namespace WebApi.Controllers
                 return NotFound(); // 404 Not Found
             }
         }
+
+
+        // Rota DELETE: api/Supplier/{id}
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteSupplier(int id)
+        {
+            var success = await _deleteSupplierService.DeleteSupplier(id);
+            if (!success)
+            {
+                return NotFound();
+            }
+            return NoContent();
+        }
+
     }
 }
 
