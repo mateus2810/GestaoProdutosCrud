@@ -40,12 +40,12 @@ namespace Infrastructure.Repositories
                             ProductModel product = new ProductModel
                             {
                                 Id = reader.GetInt32(reader.GetOrdinal("Id")),
-                                Descricao = reader["Descricao"].ToString(),
-                                Codigo = reader["Codigo"].ToString(),
-                                Situacao = Convert.ToBoolean(reader["Situacao"]),
-                                DataFabricacao = Convert.ToDateTime(reader["DataFabricacao"]),
-                                DataValidade = Convert.ToDateTime(reader["DataValidade"]),
-                                FornecedorID = reader.IsDBNull(reader.GetOrdinal("FornecedorId")) ? null : (int?)reader.GetInt32(reader.GetOrdinal("FornecedorId"))
+                                Description = reader["Descricao"].ToString(),
+                                Code = reader["Codigo"].ToString(),
+                                Status = Convert.ToBoolean(reader["Situacao"]),
+                                ManufactureDate = Convert.ToDateTime(reader["DataFabricacao"]),
+                                ExpiryDate = Convert.ToDateTime(reader["DataValidade"]),
+                                SupplierID = reader.IsDBNull(reader.GetOrdinal("FornecedorId")) ? null : (int?)reader.GetInt32(reader.GetOrdinal("FornecedorId"))
                             };
 
                             products.Add(product);

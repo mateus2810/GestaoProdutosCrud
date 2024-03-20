@@ -24,20 +24,20 @@ namespace Tests.ApplicationTests.ProductService
                     new ProductModel
                     {
                         Id = 1,
-                        Descricao = "Produto 1",
-                        Codigo ="COD1003",
-                        Situacao = true,
-                        DataFabricacao = DateTime.Now.AddDays(-10),
-                        DataValidade = DateTime.Now.AddDays(20)
+                        Description = "Produto 1",
+                        Code ="COD1003",
+                        Status = true,
+                        ManufactureDate = DateTime.Now.AddDays(-10),
+                        ExpiryDate = DateTime.Now.AddDays(20)
                     },
                     new ProductModel
                     {
                         Id = 2,
-                        Descricao = "Produto 2",
-                        Codigo = "COD1002",
-                        Situacao = true,
-                        DataFabricacao = DateTime.Now.AddDays(-5),
-                        DataValidade = DateTime.Now.AddDays(25)
+                        Description = "Produto 2",
+                        Code = "COD1002",
+                        Status = true,
+                        ManufactureDate = DateTime.Now.AddDays(-5),
+                        ExpiryDate = DateTime.Now.AddDays(25)
                     }
                 };
             var productRepositoryMock = new Mock<IProductRepository>();
@@ -48,11 +48,11 @@ namespace Tests.ApplicationTests.ProductService
                       .Returns(products.Select(product => new ProductDTO
                       {
                           Id = product.Id,
-                          Descricao = product.Descricao,
-                          Codigo = product.Codigo,
-                          Situacao = product.Situacao,
-                          DataFabricacao = product.DataFabricacao,
-                          DataValidade = product.DataValidade
+                          Description = product.Description,
+                          Code = product.Code,
+                          Status = product.Status,
+                          ManufactureDate = product.ManufactureDate,
+                          ExpiryDate = product.ExpiryDate
                       }).ToList());
             var productService = new GetProductService(productRepositoryMock.Object, mapperMock.Object);
 
