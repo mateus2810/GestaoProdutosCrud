@@ -1,7 +1,7 @@
 ﻿using Application.Services.SupplierServices.CreateSupllierService.Interface;
 using Application.Services.SupplierServices.GetSupllierService.Interface;
+using Application.Services.SupplierServices.UpdateSupllierService.Interface;
 using Domain.Input;
-using Domain.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Threading.Tasks;
@@ -14,13 +14,16 @@ namespace WebApi.Controllers
     {
         private readonly IGetSupllierService _getSupllierService;
         private readonly ICreateSupllierService _createSupllierService;
+        private readonly IUpdateSupllierService _updateSupllierService;
 
         public SupplierController(
             IGetSupllierService getSupllierService,
-            ICreateSupllierService createSupllierService)
+            ICreateSupllierService createSupllierService,
+            IUpdateSupllierService updateSupllierService)
         {
             _getSupllierService = getSupllierService;
             _createSupllierService = createSupllierService;
+            _updateSupllierService = updateSupllierService;
         }
 
         [HttpGet]
@@ -60,6 +63,28 @@ namespace WebApi.Controllers
                 return StatusCode(500, "Erro ao criar o fornecedor");
             }
         }
+
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateSupplier(int id, [FromBody] SupplierInput supplierInput)
+        {
+            if (id <= 0)
+            {
+                return BadRequest("ID inválido.");
+            }
+
+            bool success = await _updateSupllierService.UpdateSupplier(id, supplierInput);
+
+            if (success)
+            {
+                return NoContent(); // 204 No Content
+            }
+            else
+            {
+                return NotFound(); // 404 Not Found
+            }
+        }
     }
 }
+
 

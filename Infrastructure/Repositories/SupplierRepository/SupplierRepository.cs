@@ -88,5 +88,36 @@ namespace Infrastructure.Repositories.SupplierRepository
                 _dbSession.Dispose(); // Garante que a conexão seja fechada
             }
         }
+
+        public async Task<bool> UpdateSupplier(int id, SupplierInput supplierInput)
+        {
+            try
+            {
+                using (var command = _dbSession.Connection.CreateCommand())
+                {
+                    command.CommandText = "UPDATE Fornecedor SET Codigo = @Codigo, Descricao = @Descricao, CNPJ = @CNPJ, Nome = @Nome WHERE Id = @Id";
+                    command.Parameters.AddWithValue("@Codigo", supplierInput.Codigo);
+                    command.Parameters.AddWithValue("@Descricao", supplierInput.Descricao);
+                    command.Parameters.AddWithValue("@CNPJ", supplierInput.CNPJ);
+                    command.Parameters.AddWithValue("@Nome", supplierInput.Nome);
+                    command.Parameters.AddWithValue("@Id", id);
+
+                    await command.ExecuteNonQueryAsync();
+                }
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                // Trate a exceção conforme necessário
+                throw new Exception("Ocorreu um erro ao atualizar o fornecedor.", ex);
+            }
+            finally
+            {
+                _dbSession.Dispose(); // Garante que a conexão seja fechada
+            }
+        }
+
+
     }
 }
